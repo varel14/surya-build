@@ -1,11 +1,21 @@
+# Utilisation de l'image de base PyTorch AWS (optimisée GPU)
 FROM ://amazonaws.com
 
+# Dossier de travail standard SageMaker
 WORKDIR /opt/ml/code
 
+# Installation des dépendances système pour OpenCV
+RUN apt-get update && apt-get install -y libgl1-mesa-glx libglib2.0-0 && rm -rf /var/lib/apt/lists/*
+
+# Copie et installation des dépendances Python
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copie de votre code source
 COPY . /opt/ml/code/
 
-RUN apt-get update && apt-get install -y libgl1-mesa-glx libg>
-RUN pip install --no-cache-dir surya-ocr sagemaker-inference
-
+# Configuration pour le serveur d'inférence SageMaker
+ENV SAGEMAKER_PROGRAM inference.py
 EXPOSE 8080
+
 ENTRYPOINT ["python", "-m", "surya.serve"]
