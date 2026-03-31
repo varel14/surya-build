@@ -15,6 +15,9 @@ COPY . /opt/ml/code/
 
 # Configuration pour le serveur d'inférence SageMaker
 ENV SAGEMAKER_PROGRAM=inference.py
+ENV SAGEMAKER_SUBMIT_DIRECTORY=/opt/ml/model/code
+ENV PYTHONUNBUFFERED=1
+
 EXPOSE 8080
 
-ENTRYPOINT ["python", "-m", "surya.serve"]
+# ENTRYPOINT ["python", "-m", "surya.serve"]
