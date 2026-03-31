@@ -1,0 +1,13 @@
+# Moteur OCR et détection
+surya-ocr>=0.4.0
+
+# Manipulation d'images et PDF
+opencv-python-headless
+pillow
+pymupdf
+python-dotenv
+
+# Interface SageMaker (essentiel pour le serveur d'inférence)
+sagemaker-inference
+multi-model-server
+retrying
