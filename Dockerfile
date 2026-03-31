@@ -14,7 +14,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /opt/ml/code/
 
 # Configuration pour le serveur d'inférence SageMaker
-ENV SAGEMAKER_PROGRAM inference.py
+ENV SAGEMAKER_PROGRAM=inference.py
 EXPOSE 8080
 
 ENTRYPOINT ["python", "-m", "surya.serve"]
