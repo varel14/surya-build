@@ -1,5 +1,5 @@
 # Utilisation de l'image de base PyTorch AWS (optimisée GPU)
-FROM 763104351884.dkr.ecr.eu-west-1.amazonaws.com/pytorch-inference:2.1.0-gpu-py310-cu118-ubuntu20.04
+FROM 763104351884.dkr.ecr.eu-west-1.amazonaws.com/pytorch-inference:2.0-gpu-py310
 # Dossier de travail standard SageMaker
 WORKDIR /opt/ml/code
 
